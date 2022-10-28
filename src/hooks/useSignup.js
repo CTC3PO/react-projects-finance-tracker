@@ -31,12 +31,12 @@ export const useSignup = () => {
         throw new Error("Could not complete sign up ");
       }
 
-      //else, there's valid response, add display name to user
+      //else if, there's valid response, add display name to firebase
       await response.user.updateProfile({ displayName });
 
       //dispatch login action (after signup)
       //has 2: type action, and payload
-      dispatch({ type: "LOGIN", payload: response.user });
+      dispatch({ type: "SIGNUP", payload: response.user });
 
       //then check if isCanceled bfore setIsPending and setError
       if (!isCanceled) {

@@ -1,0 +1,12 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /transactions/{document=**} {
+      //allow access to data only based on condition:
+      //only after they authenticate and logged in 
+      allow create: if request.auth != null 
+
+      allow read, delete: if request.auth.uid == resource.data.uid
+    }
+  }
+}

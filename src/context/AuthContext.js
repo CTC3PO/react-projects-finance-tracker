@@ -8,7 +8,7 @@ export const AuthContext = createContext();
 
 //authReducer takes current state and the action, then
 //update the state, including the user, in different ways
-//depending on the context (login, logout,...), it perfomrs different action
+//depending on the action type, it perfomrs different action
 export const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
@@ -42,8 +42,6 @@ export const AuthContextProvider = ({ children }) => {
       unsub();
     });
   }, []);
-
-  console.log("AuthContext state:", state);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>

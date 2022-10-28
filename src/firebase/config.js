@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+import "firebase/compat/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCXR1dY6uupbQxbJNq0VjbniZn2LKOTVX4",
@@ -18,4 +18,7 @@ firebase.initializeApp(firebaseConfig);
 const projectFirestore = firebase.firestore();
 const projectAuth = firebase.auth();
 
-export { projectFirestore, projectAuth };
+//timestamp to add to addDocument function in useFirestore
+const timestamp = firebase.firestore.Timestamp;
+
+export { projectFirestore, projectAuth, timestamp };
