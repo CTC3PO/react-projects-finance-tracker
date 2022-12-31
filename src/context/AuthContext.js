@@ -1,4 +1,4 @@
-/* store user authenticaiton context for all user */
+/* store authentication context to be used for all users */
 
 import { createContext, useReducer } from "react";
 import { projectAuth } from "../firebase/config";
@@ -9,6 +9,7 @@ export const AuthContext = createContext();
 //authReducer takes current state and the action, then
 //update the state, including the user, in different ways
 //depending on the action type, it perfomrs different action
+
 export const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
